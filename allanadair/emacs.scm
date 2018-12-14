@@ -58,3 +58,30 @@ version control systems.
 mode with support for many third-party syntax- and UI packages.
 ")
     (license expat)))
+(define-public emacs-dockerfile-mode
+  (package
+    (name "emacs-dockerfile-mode")
+    (version "20181104.1800")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (string-append
+               "https://melpa.org/packages/dockerfile-mode-"
+               version
+               ".el"))
+        (sha256
+          (base32
+            "1bcypsk8rvdw0zz6xkia01bvb3msksvn09wj6ir8l7f8ww51vvx5"))))
+    (build-system emacs-build-system)
+    (propagated-inputs `(("emacs-s" ,emacs-s)))
+    (home-page
+      "https://github.com/spotify/dockerfile-mode")
+    (synopsis
+      "Major mode for editing Docker's Dockerfiles")
+    (description
+      "Provides a major mode `dockerfile-mode' for use with the standard
+`Dockerfile' file format.  Additional convenience functions allow
+images to be built easily.
+")
+    (license asl2.0)))
+
