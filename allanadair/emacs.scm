@@ -58,6 +58,7 @@ version control systems.
 mode with support for many third-party syntax- and UI packages.
 ")
     (license expat)))
+
 (define-public emacs-dockerfile-mode
   (package
     (name "emacs-dockerfile-mode")
@@ -73,7 +74,6 @@ mode with support for many third-party syntax- and UI packages.
           (base32
             "1bcypsk8rvdw0zz6xkia01bvb3msksvn09wj6ir8l7f8ww51vvx5"))))
     (build-system emacs-build-system)
-    (propagated-inputs `(("emacs-s" ,emacs-s)))
     (home-page
       "https://github.com/spotify/dockerfile-mode")
     (synopsis
@@ -84,4 +84,3 @@ mode with support for many third-party syntax- and UI packages.
 images to be built easily.
 ")
     (license asl2.0)))
-
