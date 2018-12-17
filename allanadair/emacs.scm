@@ -1,7 +1,7 @@
 (define-module (allanadair emacs)
+  #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system emacs)
   #:use-module (guix download)
-  #:use-module (guix licenses)
   #:use-module (guix packages))
 
 (define-public emacs-editorconfig
@@ -32,7 +32,7 @@ editors to read the file format and adhere to defined styles.
 EditorConfig files are easily readable and they work nicely with
 version control systems.
 ")
-    (license gpl3)))
+    (license license:gpl3)))
 
 (define-public emacs-nord-theme
   (package
@@ -57,4 +57,4 @@ version control systems.
       "Nord is a 16 colorspace theme build to run in GUI- and terminal
 mode with support for many third-party syntax- and UI packages.
 ")
-    (license expat)))
+    (license license:expat)))
