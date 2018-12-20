@@ -24,8 +24,9 @@
     (arguments
      '(#:unpack-path "k8s.io/kubernetes"
        #:import-path "k8s.io/kubernetes/cmd/kubectl"
+       #:install-source? #f
        #:phases (modify-phases %standard-phases
-		  (delete 'reset-gzip-timestamps)
+		  ;(delete 'reset-gzip-timestamps)
 		  (add-before 'build 'build-what
 		    (lambda _
 		      (setenv "WHAT" "cmd/kubectl") #t)))))
