@@ -15,7 +15,7 @@
 (define-public skopeo
   (package
     (name "skopeo")
-    (version "0.1.33")
+    (version "0.1.34")
     (source (origin
               (method git-fetch)
               (uri (git-reference
@@ -24,7 +24,7 @@
               (file-name (git-file-name name version))
               (sha256
                (base32
-                "0j59ihadmxl9kbz2bi90sx3rf46158z0ps5m0kfgjgr1valhlxrm"))))
+                "1drbbjqih69nvgynjcz0js0vi6sgsax8565zbrmf8fkbk609c7r3"))))
     (build-system go-build-system)
     (native-inputs
      `(("pkg-config" ,pkg-config)))
