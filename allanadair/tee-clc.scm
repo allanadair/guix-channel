@@ -3,7 +3,8 @@
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module (guix build-system trivial)
-  #:use-module (gnu packages compression))
+  #:use-module (gnu packages compression)
+  #:use-module (gnu packages java))
 
 (define-public tee-clc
   (package
@@ -20,6 +21,8 @@
    (build-system trivial-build-system)
    (native-inputs
     `(("unzip" ,unzip)))
+   (propagated-inputs
+    `(("jre" ,icedtea)))
    (arguments
     `(#:modules ((guix build utils))
       #:builder
