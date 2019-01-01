@@ -58,3 +58,33 @@ version control systems.
 mode with support for many third-party syntax- and UI packages.
 ")
     (license license:expat)))
+
+(define-public emacs-plantuml-mode
+  (package
+   (name "emacs-plantuml-mode")
+   (version "20180816.1012")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append
+           "https://melpa.org/packages/plantuml-mode-"
+           version
+           ".el"))
+     (sha256
+      (base32
+       "02d47rrcvm5f7x55xv1bm8dz34xrvxf25k6msqj3b1d8dgcaswzi"))))
+   (build-system emacs-build-system)
+   (home-page "unspecified")
+   (synopsis "Major mode for PlantUML")
+   (description
+    "A major mode for plantuml, see: http://plantuml.sourceforge.net/
+Plantuml is an open-source tool in java that allows to quickly write :
+    - sequence diagram,
+    - use case diagram,
+    - class diagram,
+    - activity diagram,
+    - component diagram,
+    - state diagram
+    - object diagram
+")
+   (license license:gpl3)))
