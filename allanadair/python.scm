@@ -84,3 +84,27 @@
     (synopsis "Python docstring style checker")
     (description "Python docstring style checker")
     (license license:expat)))
+
+(define-public python-boto3
+  (package
+    (name "python-boto3")
+    (version "1.9.86")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (pypi-uri "boto3" version))
+        (sha256
+          (base32
+            "02gqslf32l6hkg2xn64zywa16w5abrbh9ncfyh7w3xb3lrxrbkb3"))))
+    (build-system python-build-system)
+    (propagated-inputs
+      `(("python-botocore" ,python-botocore)
+        ("python-jmespath" ,python-jmespath)
+        ("python-s3transfer" ,python-s3transfer)))
+    (home-page "https://github.com/boto/boto3")
+    (synopsis "The AWS SDK for Python")
+    (description "The AWS SDK for Python")
+    (license license:asl2.0)))
+
+(define-public python2-boto3
+  (package-with-python2 python-boto3))
