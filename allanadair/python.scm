@@ -5,6 +5,7 @@
   #:use-module (guix download)
   #:use-module (gnu packages check)
   #:use-module (gnu packages python)
+  #:use-module (gnu packages python-web)
   #:use-module (gnu packages python-xyz))
 
 (define-public python-flake8-import-order
