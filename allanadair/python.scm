@@ -98,6 +98,8 @@
           (base32
             "02gqslf32l6hkg2xn64zywa16w5abrbh9ncfyh7w3xb3lrxrbkb3"))))
     (build-system python-build-system)
+    (arguments
+    `(#:tests? #f)) ; tests try to reach out to PyPI
     (propagated-inputs
       `(("python-botocore" ,python-botocore)
         ("python-jmespath" ,python-jmespath)
