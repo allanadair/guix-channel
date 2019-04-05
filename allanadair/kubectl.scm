@@ -19,7 +19,7 @@
        (file-name (git-file-name "kubernetes" version))
        (sha256
         (base32
-         "1j2zzvzlqw8nmq2sbc4sm3wr4ncfvbdipgmhyazm7rznpk77mq6c"))))
+         "09ccdldvdajym8i0gcdv4akiajplqkxx0fw6aqklzyc1yk0nfrdz"))))
     (build-system go-build-system)
     (arguments
      '(#:unpack-path "k8s.io/kubernetes"
