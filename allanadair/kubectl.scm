@@ -9,7 +9,7 @@
 (define-public kubectl
   (package
     (name "kubectl")
-    (version "1.11.6")
+    (version "1.14.0")
     (source
      (origin
        (method git-fetch)
