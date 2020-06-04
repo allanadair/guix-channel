@@ -15,17 +15,17 @@
 (define-public kops
   (package
     (name "kops")
-    (version "1.16.0")
+    (version "1.17.0")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/kubernetes/kops")
-             (commit (string-append "v" version))))
+             (commit "a17511e6dd694f98ff15946744fb4e2cae9c977f")))
        (file-name (git-file-name "kops" version))
        (sha256
         (base32
-         "1jc3p8f44dxmi73z1c2ji4xsch597pmlkfbaglpc720vs4c59qmn"))))
+         "1cgzg036fvjjv3nw58npixp8wbvlnsw7jacjpm7s7xp9an02nz20"))))
     (build-system go-build-system)
     (native-inputs
      `(("git" ,git)
@@ -42,7 +42,7 @@
        #:phases (modify-phases %standard-phases
 		  (replace 'build
 		    (lambda _
-		      (setenv "VERSION" "1.16.0")
+		      (setenv "VERSION" "1.17.0")
 		      (invoke "make" "-f" "src/k8s.io/kops/Makefile")))
 		  (delete 'check))))
     (home-page "https://kops.sigs.k8s.io/")
