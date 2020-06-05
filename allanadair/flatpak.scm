@@ -99,9 +99,9 @@
   #:use-module (ice-9 match)
   #:use-module (srfi srfi-1))
 
-(define-public flatpak
+(define-public flatpak-allanadair
   (package
-   (name "flatpak")
+   (name "flatpak-allanadair")
    (version "1.6.3")
    (source
     (origin
