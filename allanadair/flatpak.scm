@@ -67,6 +67,7 @@
   #:use-module (gnu packages nettle)
   #:use-module (gnu packages networking)
   #:use-module (gnu packages nss)
+  #:use-module (gnu packages package-management)
   #:use-module (gnu packages patchutils)
   #:use-module (gnu packages perl)
   #:use-module (gnu packages perl-check)
