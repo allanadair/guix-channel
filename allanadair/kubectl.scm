@@ -9,7 +9,7 @@
 (define-public kubectl
   (package
     (name "kubectl")
-    (version "1.18.5")
+    (version "1.20.1")
     (source
      (origin
        (method git-fetch)
@@ -19,7 +19,7 @@
        (file-name (git-file-name "kubernetes" version))
        (sha256
         (base32
-         "1lh16jrbj9gry7nnc6gkrsishx60xp3sjmpdp14gfvgd0f0hrvx7"))))
+         "0jifaikixl4xs8dvl5ssbs27m2dmijdx75wqfy6n8gn5vs14j9m7"))))
     (build-system go-build-system)
     (arguments
      '(#:unpack-path "k8s.io/kubernetes"
@@ -28,7 +28,8 @@
        #:phases (modify-phases %standard-phases
 		  (add-before 'build 'build-what
 		    (lambda _
-		      (setenv "WHAT" "cmd/kubectl") #t)))))
+		      (setenv "WHAT" "cmd/kubectl") #t))
+		  (delete 'install-license-files))))
     (home-page "https://kubernetes.io")
     (synopsis "Production-Grade Container Scheduling and Management")
     (description "Production-Grade Container Scheduling and Management")
