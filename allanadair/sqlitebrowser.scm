@@ -4,12 +4,16 @@
   #:use-module (guix git-download)
   #:use-module (guix download)
   #:use-module (guix build-system cmake)
+  #:use-module (guix build-system qt)
+  #:use-module (guix utils)
+  #:use-module (gnu packages)
+  #:use-module (gnu packages cpp)
   #:use-module (gnu packages sqlite)
   #:use-module (gnu packages qt))
 
-(define-public sqlitebrowser
+(define-public allanadair-sqlitebrowser
   (package
-    (name "sqlitebrowser")
+    (name "allanadair-sqlitebrowser")
     (version "3.12.1")
     (source (origin
               (method git-fetch)
@@ -19,17 +23,33 @@
               (file-name (git-file-name name version))
               (sha256
                (base32
-                "0ray6cscx2qil1dfi7hmpijmq3kba49wn430ih1q4fkz9psjvrz1"))))
+                "0ray6cscx2qil1dfi7hmpijmq3kba49wn430ih1q4fkz9psjvrz1"))
+	      (patches (search-patches "sqlitebrowser-cmakelists.patch"))
+	      (modules '((guix build utils)))
+	      (snippet
+	       '(begin
+		  ;; Delete vendored dependencies.
+		  (delete-file-recursively "libs/json")
+		  (delete-file-recursively "libs/qscintilla")
+		  #t))))
     (build-system cmake-build-system)
+    (native-inputs
+     `(("qttools" ,qttools)))
     (inputs
-     `(("qtbase" ,qtbase)
-       ("qttools" ,qttools)
+     `(("nlohmann-json-cpp" ,nlohmann-json-cpp)
+       ("qtbase" ,qtbase)
+       ("qscintilla" ,qscintilla)
        ("sqlite" ,sqlite)))
     (arguments
-     '(#:phases (modify-phases %standard-phases
-		  (delete 'check))))
+     `(#:configure-flags '("-DENABLE_TESTING=ON"
+			   "-DFORCE_INTERNAL_QSCINTILLA=OFF"
+			   "-DFORCE_INTERNAL_QCUSTOMPLOT=ON"
+			   "-DFORCE_INTERNAL_QHEXEDIT=ON")))
     (home-page "https://sqlitebrowser.org/")
-    (synopsis "DB Browser for SQLite (DB4S) is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite.")
+    (synopsis "DB Browser for SQLite is a tool to create, design, and
+edit database files compatible with SQLite")
     (description
-     "DB4S is for users and developers who want to create, search, and edit databases. DB4S uses a familiar spreadsheet-like interface, and complicated SQL commands do not have to be learned.")
-    (license license:gpl3+)))
+     "DB4S is for users and developers who want to create, search, and
+edit databases. DB4S uses a familiar spreadsheet-like interface, and
+complicated SQL commands do not have to be learned.")
+    (license (list license:gpl3+ license:mpl2.0))))
