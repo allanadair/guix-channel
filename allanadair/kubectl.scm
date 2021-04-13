@@ -9,7 +9,7 @@
 (define-public kubectl
   (package
     (name "kubectl")
-    (version "1.20.2")
+    (version "1.21.0")
     (source
      (origin
        (method git-fetch)
@@ -19,7 +19,7 @@
        (file-name (git-file-name "kubernetes" version))
        (sha256
         (base32
-         "09rhja1jw4n0qpwd4vgpbx7rdwzs0zminx9wvq1145gw55xyzn95"))))
+         "177qnybjq5fs63jjxa2l680gnr4jllx6yzmnz5k2vdql0hqkrgll"))))
     (build-system go-build-system)
     (arguments
      '(#:unpack-path "k8s.io/kubernetes"

@@ -16,17 +16,17 @@
 (define-public kops
   (package
     (name "kops")
-    (version "1.18.2")
+    (version "1.20.0")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/kubernetes/kops")
-             (commit "84495481e4e1f8adb7774c3101ee5a5740479518")))
+             (commit (string-append "v" version))))
        (file-name (git-file-name "kops" version))
        (sha256
         (base32
-         "1g260q73cwd1av8zn7xj8h2hb9hxil0y4irmdpjnxsd6bskp12h4"))))
+         "0cik8ryl862g1vpygrd1vg4a8a9d061dynv1w5ki4nnq2jm2sczb"))))
     (build-system go-build-system)
     (native-inputs
      `(("git" ,git)
