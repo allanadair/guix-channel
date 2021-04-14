@@ -24,20 +24,11 @@
               (sha256
                (base32
                 "0ray6cscx2qil1dfi7hmpijmq3kba49wn430ih1q4fkz9psjvrz1"))
-	      (patches (search-patches "sqlitebrowser-cmakelists.patch"))
-	      (modules '((guix build utils)))
-	      (snippet
-	       '(begin
-		  ;; Delete vendored dependencies.
-		  (delete-file-recursively "libs/json")
-		  (delete-file-recursively "libs/qscintilla")
-		  #t))))
     (build-system cmake-build-system)
     (native-inputs
      `(("qttools" ,qttools)))
     (inputs
-     `(("nlohmann-json-cpp" ,nlohmann-json-cpp)
-       ("qtbase" ,qtbase)
+     `(("qtbase" ,qtbase)
        ("qscintilla" ,qscintilla)
        ("sqlite" ,sqlite)))
     (arguments
