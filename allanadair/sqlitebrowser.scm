@@ -23,7 +23,7 @@
               (file-name (git-file-name name version))
               (sha256
                (base32
-                "0ray6cscx2qil1dfi7hmpijmq3kba49wn430ih1q4fkz9psjvrz1"))
+                "0ray6cscx2qil1dfi7hmpijmq3kba49wn430ih1q4fkz9psjvrz1"))))
     (build-system cmake-build-system)
     (native-inputs
      `(("qttools" ,qttools)))
