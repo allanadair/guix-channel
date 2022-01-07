@@ -16,7 +16,7 @@
 (define-public kops
   (package
     (name "kops")
-    (version "1.20.0")
+    (version "1.22.3")
     (source
      (origin
        (method git-fetch)
@@ -26,7 +26,7 @@
        (file-name (git-file-name "kops" version))
        (sha256
         (base32
-         "0cik8ryl862g1vpygrd1vg4a8a9d061dynv1w5ki4nnq2jm2sczb"))))
+         "1346w3hiidnk4w838ymp5lmq6v7r88h48m7bpmz3r3l8n9g41km9"))))
     (build-system go-build-system)
     (native-inputs
      `(("git" ,git)
@@ -38,7 +38,7 @@
 	("ruby" ,ruby)
 	("node" ,node)))
     (arguments
-     '(#:import-path "k8s.io/kops"
+     '(#:import-path "k8s.io/kops/cmd/kops"
        #:unpack-path "k8s.io/kops"
        #:install-source? #f))
     (home-page "https://kops.sigs.k8s.io/")
