@@ -40,7 +40,8 @@
     (arguments
      '(#:import-path "k8s.io/kops/cmd/kops"
        #:unpack-path "k8s.io/kops"
-       #:install-source? #f))
+       #:install-source? #f
+       #:tests? #f))
     (home-page "https://kops.sigs.k8s.io/")
     (synopsis "The easiest way to get a production grade Kubernetes cluster up and running")
     (description "kops helps you create, destroy, upgrade and maintain production-grade, highly available, Kubernetes clusters from the command line. AWS (Amazon Web Services) is currently officially supported, with GCE and OpenStack in beta support, and VMware vSphere in alpha, and other platforms planned")
